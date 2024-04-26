@@ -6,23 +6,40 @@ import router from "./router";
 // Vuetify
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
-import { aliases, mdi } from 'vuetify/iconsets/mdi'
+// import { aliases, mdi } from 'vuetify/iconsets/mdi'
+import '@mdi/font/css/materialdesignicons.css'
+import { fa } from "vuetify/iconsets/fa";
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+
+
+const customTheme = {
+    dark: false,
+    colors: {
+        background: "#ECF0F1",
+        surface: "#fff",
+        primary: "#096DD1",
+        secondary: "#FF9623",
+        error: "#ff0000",
+    },
+};
+
 
 const vuetify = createVuetify({
     components,
     directives,
     icons: {
         defaultSet: 'mdi',
-        aliases,
+        // aliases,
         sets: {
-            mdi,
+            // mdi,
+            fa
         },
     },
     theme: {
-        options: {
-            customProperties: true
+        defaultTheme: "customTheme",
+        themes: {
+            customTheme,
         },
     },
 })

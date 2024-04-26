@@ -1,24 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/Home.vue'
+import ShelfItemsView from '../views/ShelfItemsView.vue'
+import ShoppingView from '../views/ShoppingView.vue'
 
 const routes = [
   {
-    path: '/home',
-    name: 'upload',
-    component: HomeView,
-    meta: {
-      requiresAuth: true,
-      requiresAdmin: false
-    }
+    path: '/shopping',
+    name: 'shopping',
+    component: ShoppingView,
+  },
+  {
+    path: '/shelf',
+    name: 'shelf',
+    component: ShelfItemsView,
   },
   {
     path: '/error',
     name: 'error',
-    component: HomeView,
-    meta: {
-      requiresAuth: false,
-      requiresAdmin: false
-    }
+    component: ShelfItemsView,
   },
   {
     path: '/:catchAll(.*)',
@@ -26,7 +24,7 @@ const routes = [
   },
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/shopping'
   }
 ]
 

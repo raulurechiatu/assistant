@@ -14,12 +14,28 @@ class ShelfItemService {
         return axios.get(PRODUCT_API_BASE_URL + "/all");
     }
 
-    getById(id) {
-        return axios.get(PRODUCT_API_BASE_URL + "/all", id);
+    add(shelfItem) {
+        return axios.post(PRODUCT_API_BASE_URL + "/add", shelfItem);
+    }
+
+    edit(shelfItem) {
+        return axios.post(PRODUCT_API_BASE_URL + "/edit", shelfItem);
+    }
+
+    delete(id) {
+        return axios.delete(PRODUCT_API_BASE_URL + "/delete", { data: id});
     }
 
     processMessage(message) {
         shelfData.value.shelfItems = Object.values(message);
+    }
+
+    getCategories() {
+        let categories = new Set();
+        shelfData.value.shelfItems.forEach(item => {
+            categories.add(item.category);
+        });
+        return categories;
     }
 
 }

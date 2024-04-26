@@ -12,6 +12,8 @@ public class ShelfItem {
     String category;
     String id;
     String name;
-    Timestamp needTime;
+    String icon;
+    float defaultQuantity;
+    float defaultPrice;
 //    String createdById;
 }

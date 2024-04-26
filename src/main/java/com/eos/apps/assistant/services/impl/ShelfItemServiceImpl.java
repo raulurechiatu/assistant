@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ShelfItemServiceImpl implements ShelfItemService {
@@ -25,6 +26,22 @@ public class ShelfItemServiceImpl implements ShelfItemService {
     public void getAll() {
         List<ShelfItem> items = new ArrayList<>();
         firebaseService.getAll();
+    }
+
+    @Override
+    public boolean add(ShelfItem shelfItem) {
+        String id = UUID.randomUUID().toString();
+        return firebaseService.add(id, shelfItem);
+    }
+
+    @Override
+    public ShelfItem edit(ShelfItem shelfItem) {
+        return firebaseService.edit(shelfItem.getId(), shelfItem);
+    }
+
+    @Override
+    public void delete(String id) {
+        firebaseService.delete(id);
     }
 
 

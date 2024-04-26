@@ -1,15 +1,11 @@
 <template>
-  <HelloWorld/>
+  <router-view />
 </template>
 
 <script>
-import HelloWorld from './views/Home.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  name: 'App'
 }
 </script>
 
@@ -20,11 +16,20 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 .v-table > div > table > thead > tr {
-  background-color: #2c3e50 !important;
+  background-color: rgb(var(--v-theme-secondary)) !important;
   color: white;
+}
+
+.content-page-container {
+  padding-top: 60px !important;
+  margin: 0 !important;
+}
+
+.content-container {
+  padding: 20px
+;
 }
 </style>

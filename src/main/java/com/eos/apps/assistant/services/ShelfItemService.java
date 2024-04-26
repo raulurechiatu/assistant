@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface ShelfItemService {
     void getAll();
+    boolean add(ShelfItem shelfItem);
+    ShelfItem edit(ShelfItem shelfItem);
+    void delete(String id);
 }
