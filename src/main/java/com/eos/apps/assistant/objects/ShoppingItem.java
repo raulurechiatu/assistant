@@ -12,4 +12,10 @@ public class ShoppingItem {
     String id;
     float quantity;
     float price;
+
+    public ShoppingItem(ShelfItem shelfItem) {
+        this.shelfItemId = shelfItem.getId();
+        this.quantity = shelfItem.getDefaultQuantity();
+        this.price = shelfItem.getDefaultPrice();
+    }
 }

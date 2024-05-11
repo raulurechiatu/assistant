@@ -31,6 +31,7 @@ public class ShelfItemServiceImpl implements ShelfItemService {
     @Override
     public boolean add(ShelfItem shelfItem) {
         String id = UUID.randomUUID().toString();
+        shelfItem.setId(id);
         return firebaseService.add(id, shelfItem);
     }
 

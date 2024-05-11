@@ -153,6 +153,7 @@
 import ShelfItemService from "@/services/ShelfItemService";
 import { shelfData } from "@/services/ShelfItemService";
 import WebsocketService from '@/services/WebsocketService'
+import ShoppingItemService from "@/services/ShoppingItemService";
 
 export default {
   name: 'ShelfItemsGrid',
@@ -272,7 +273,7 @@ export default {
       }
     },
     addShelfItemToShopping(item) {
-      console.log("Add item " + item);
+      ShoppingItemService.add(item);
     }
   }
 }

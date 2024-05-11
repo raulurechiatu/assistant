@@ -68,6 +68,7 @@
 // });
 
 import ShelfItemService from "@/services/ShelfItemService";
+import ShoppingItemService from "@/services/ShoppingItemService";
 
 class WebsocketService {
 
@@ -90,6 +91,9 @@ class WebsocketService {
         message = JSON.parse(message);
         if (message.type === "ShelfItem") {
             ShelfItemService.processMessage(message.entity);
+        }
+        if (message.type === "ShoppingItem") {
+            ShoppingItemService.processMessage(message.entity);
         }
         // if (!this.messages) this.messages = [];
         //check if it's our message or from a friend

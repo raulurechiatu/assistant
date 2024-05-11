@@ -18,6 +18,7 @@ public record FirebaseServiceImpl<T>(Class<T> type, String collection) implement
 
     @Override
     public void getAll() {
+        MessageType messageType = collection.equals("shopping_item") ? MessageType.ShoppingItem : MessageType.ShelfItem;
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference ref = firebaseDatabase.getReference().child(collection);
         List<T> result = new ArrayList<>();
@@ -26,7 +27,7 @@ public record FirebaseServiceImpl<T>(Class<T> type, String collection) implement
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     try {
-                        CustomSocketHandler.sendItem((T)dataSnapshot.getValue(), MessageType.ShelfItem);
+                        CustomSocketHandler.sendItem((T)dataSnapshot.getValue(), messageType);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }

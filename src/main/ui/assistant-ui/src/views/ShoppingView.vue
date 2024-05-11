@@ -4,30 +4,7 @@
     <v-row>
       <left-menu></left-menu>
       <div>
-        <div class="content-container">
-          <v-card flat
-                  style="min-width: 500px; width: 50%;">
-            <v-card-title class="d-flex align-center pe-2">
-              <v-icon icon="mdi-cart"></v-icon> &nbsp;
-              Cosul de cumparaturi
-
-              <v-spacer></v-spacer>
-            </v-card-title>
-
-            <v-text-field
-                v-model="search"
-                density="compact"
-                label="Cautati"
-                prepend-inner-icon="mdi-magnify"
-                variant="solo-filled"
-                flat
-                hide-details
-                single-line
-                style="margin: 10px 10px"
-            ></v-text-field>
-
-          </v-card>
-        </div>
+        <shopping-items-grid></shopping-items-grid>
         <shelf-items-grid></shelf-items-grid>
       </div>
     </v-row>
@@ -39,10 +16,11 @@ import { shelfData } from "@/services/ShelfItemService";
 import TopBar from "@/components/TopBar";
 import LeftMenu from "@/components/LeftMenu";
 import ShelfItemsGrid from "@/components/ShelfItemsGrid";
+import ShoppingItemsGrid from "@/components/ShoppingItemsGrid";
 
 export default {
   name: 'ShoppingView',
-  components: {ShelfItemsGrid, LeftMenu, TopBar},
+  components: {ShoppingItemsGrid, ShelfItemsGrid, LeftMenu, TopBar},
   props: {
     msg: String
   },
